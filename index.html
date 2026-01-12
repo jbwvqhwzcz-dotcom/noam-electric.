@@ -12,9 +12,10 @@
       color: #333;
     }
 
-    /* כותרת עליונה עם תמונה + כחול overlay */
+    /* כותרת עליונה עם תמונה + כחול כהה overlay */
     header {
-      background: linear-gradient(rgba(28,31,74,0.6), rgba(28,31,74,0.6)),
+      /* הכחול הכהה יותר עם שקיפות */
+      background: linear-gradient(rgba(10,12,40,0.8), rgba(10,12,40,0.8)),
                   url('images/תמונה.png') no-repeat center center;
       background-size: cover; /* מתאים את התמונה לגודל המלבן */
       color: white;
@@ -26,8 +27,8 @@
     }
 
     header img {
-      width: 100px;
-      height: 100px;
+      width: 120px; /* החזרתי לגודל המקורי */
+      height: 120px;
       margin-bottom: 15px;
     }
 
@@ -100,6 +101,27 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
+    /* כפתור חייג */
+    .call-button {
+      display: block;
+      text-align: center;
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      background-color: #1c1f4a; /* כחול כהה */
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .call-button:hover {
+      background-color: #10122a; /* כהה יותר בהובר */
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -150,7 +172,12 @@
 
   <section>
     <h2>צור קשר</h2>
-    <p>לחץ על כפתור הוואטסאפ ונדבר 👇</p>
+    <p>לחץ על כפתור הוואטסאפ או החייג עכשיו 👇</p>
+
+    <!-- כפתור חייג -->
+    <a class="call-button" href="tel:0512715252">
+      📞 צור קשר עוד היום – 0512715252
+    </a>
   </section>
 
   <!-- כפתור וואטסאפ -->
