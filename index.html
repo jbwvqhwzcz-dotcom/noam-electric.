@@ -16,7 +16,7 @@
     header {
       background: linear-gradient(rgba(28,31,74,0.6), rgba(28,31,74,0.6)), 
                   url('images/תמונה.png') no-repeat center center;
-      background-size: cover; /* מתאים את התמונה לגודל המלבן */
+      background-size: cover;
       color: white;
       padding: 30px 20px;
       text-align: center;
@@ -26,8 +26,8 @@
     }
 
     header img {
-      width: 100px;
-      height: 100px;
+      width: 150px; /* גודל מקורי יותר */
+      height: auto;
       margin-bottom: 15px;
     }
 
@@ -65,8 +65,8 @@
     }
 
     .services-grid div {
-      background: #ffd500; /* צהוב מהלוגו */
-      color: #1c1f4a; /* כחול כהה */
+      background: #ffd500;
+      color: #1c1f4a;
       padding: 20px;
       border-radius: 10px;
       text-align: center;
@@ -98,6 +98,35 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    /* מלבן חייג לחיצה */
+    .call-button {
+      position: fixed;
+      bottom: 80px; /* מעל כפתור הוואטסאפ */
+      right: 20px;
+      background: #1c1f4a;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background 0.2s;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .call-button:hover {
+      background: #28306f;
+      transform: scale(1.05);
+    }
+
+    .call-button:active {
+      transform: scale(0.95);
     }
 
     footer {
@@ -150,7 +179,7 @@
 
 <section>
   <h2>צור קשר</h2>
-  <p>לחץ על כפתור הוואטסאפ ונדבר 👇</p>
+  <p>לחץ על כפתור הוואטסאפ או המלבן ונדבר 👇</p>
 </section>
 
 <!-- כפתור וואטסאפ -->
@@ -158,6 +187,11 @@
    href="https://wa.me/972512715253?text=היי%20הגעתי%20אליך%20דרך%20האתר"
    target="_blank">
   💬 וואטסאפ
+</a>
+
+<!-- מלבן חייג לחיצה -->
+<a class="call-button" href="tel:0512715252">
+  📞 צור קשר עוד היום - 0512715252
 </a>
 
 <footer>
