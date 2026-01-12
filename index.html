@@ -12,9 +12,10 @@
       color: #333;
     }
 
-    /* כותרת עליונה עם תמונה + כחול overlay */
+    /* כותרת עליונה עם תמונה + כחול כהה overlay */
     header {
-      background: linear-gradient(rgba(28,31,74,0.6), rgba(28,31,74,0.6)), 
+      /* הכחול הכהה יותר עם שקיפות */
+      background: linear-gradient(rgba(10,12,40,0.8), rgba(10,12,40,0.8)),
                   url('images/תמונה.png') no-repeat center center;
       background-size: cover; /* מתאים את התמונה לגודל המלבן */
       color: white;
@@ -26,8 +27,8 @@
     }
 
     header img {
-      width: 100px;
-      height: 100px;
+      width: 120px; /* החזרתי לגודל המקורי */
+      height: 120px;
       margin-bottom: 15px;
     }
 
@@ -100,6 +101,27 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
 
+    /* כפתור חייג */
+    .call-button {
+      display: block;
+      text-align: center;
+      max-width: 300px;
+      margin: 20px auto;
+      padding: 15px;
+      background-color: #1c1f4a; /* כחול כהה */
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    .call-button:hover {
+      background-color: #10122a; /* כהה יותר בהובר */
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -110,59 +132,62 @@
 </head>
 <body>
 
-<header>
-  <!-- לוגו -->
-  <img src="a6e5e800-7f8e-428f-bd81-128fa2f00828.png" alt="לוגו נועם עבודות חשמל">
-  <h1>נועם – עבודות חשמל</h1>
-  <p>זרם של איכות ואמינות</p>
-</header>
+  <header>
+    <!-- לוגו -->
+    <img src="a6e5e800-7f8e-428f-bd81-128fa2f00828.png" alt="לוגו נועם עבודות חשמל">
+    <h1>נועם – עבודות חשמל</h1>
+    <p>זרם של איכות ואמינות</p>
+  </header>
 
-<section>
-  <h2>קצת עליי</h2>
-  <p>
-    חשמלאי מוסמך עם ניסיון בעבודות חשמל לבתים פרטיים ולעסקים.
-    דגש על שירות אמין, עבודה נקייה וזמינות גבוהה.
-  </p>
-</section>
+  <section>
+    <h2>קצת עליי</h2>
+    <p>
+      חשמלאי מוסמך עם ניסיון בעבודות חשמל לבתים פרטיים ולעסקים.
+      דגש על שירות אמין, עבודה נקייה וזמינות גבוהה.
+    </p>
+  </section>
 
-<section>
-  <h2>השירותים שלי</h2>
-  <div class="services-grid">
-    <div>✔ תיקון תקלות חשמל</div>
-    <div>✔ התקנת נקודות חשמל</div>
-    <div>✔ לוחות חשמל</div>
-    <div>✔ עבודות חשמל בשיפוצים</div>
-    <div>✔ התקנת עמדות טעינה לרכב חשמלי</div>
-    <div>✔ התקנת גופי תאורה וחיווט</div>
-  </div>
-</section>
+  <section>
+    <h2>השירותים שלי</h2>
+    <div class="services-grid">
+      <div>✔ תיקון תקלות חשמל</div>
+      <div>✔ התקנת נקודות חשמל</div>
+      <div>✔ לוחות חשמל</div>
+      <div>✔ עבודות חשמל בשיפוצים</div>
+      <div>✔ התקנת עמדות טעינה לרכב חשמלי</div>
+      <div>✔ התקנת גופי תאורה וחיווט</div>
+    </div>
+  </section>
 
-<section>
-  <h2>עבודות שבוצעו</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1581091870627-3b1c1c1b60c5" alt="">
-    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6" alt="">
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="">
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="">
-  </div>
-  <p style="font-size: 14px;">* תמונות להמחשה – ניתן להחליף לתמונות אמיתיות</p>
-</section>
+  <section>
+    <h2>עבודות שבוצעו</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1581091870627-3b1c1c1b60c5" alt="">
+      <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6" alt="">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="">
+    </div>
+    <p style="font-size: 14px;">* תמונות להמחשה – ניתן להחליף לתמונות אמיתיות</p>
+  </section>
 
-<section>
-  <h2>צור קשר</h2>
-  <p>לחץ על כפתור הוואטסאפ ונדבר 👇</p>
-</section>
+  <section>
+    <h2>צור קשר</h2>
+    <p>לחץ על כפתור הוואטסאפ או החייג עכשיו 👇</p>
 
-<!-- כפתור וואטסאפ -->
-<a class="whatsapp" 
-   href="https://wa.me/972512715253?text=היי%20הגעתי%20אליך%20דרך%20האתר"
-   target="_blank">
-  💬 וואטסאפ
-</a>
+    <!-- כפתור חייג -->
+    <a class="call-button" href="tel:0512715252">
+      📞 צור קשר עוד היום – 0512715252
+    </a>
+  </section>
 
-<footer>
-  © כל הזכויות שמורות
-</footer>
+  <!-- כפתור וואטסאפ -->
+  <a class="whatsapp" href="https://wa.me/972512715253?text=היי%20הגעתי%20אליך%20דרך%20האתר" target="_blank">
+    💬 וואטסאפ
+  </a>
+
+  <footer>
+    © כל הזכויות שמורות
+  </footer>
 
 </body>
 </html>
