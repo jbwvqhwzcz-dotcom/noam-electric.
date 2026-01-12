@@ -12,14 +12,23 @@
       color: #333;
     }
 
-    /* כותרת עליונה עם תמונה + overlay כחול כהה */
+    /* כותרת עליונה עם תמונה + כחול overlay */
     header {
-      background: linear-gradient(rgba(28,31,74,0.9), rgba(28,31,74,0.9)), 
+      background: linear-gradient(rgba(28,31,74,0.6), rgba(28,31,74,0.6)), 
                   url('images/תמונה.png') no-repeat center center;
-      background-size: cover;
+      background-size: cover; /* מתאים את התמונה לגודל המלבן */
       color: white;
       padding: 30px 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
     }
 
     header h1 {
@@ -102,6 +111,8 @@
 <body>
 
 <header>
+  <!-- לוגו -->
+  <img src="a6e5e800-7f8e-428f-bd81-128fa2f00828.png" alt="לוגו נועם עבודות חשמל">
   <h1>נועם – עבודות חשמל</h1>
   <p>זרם של איכות ואמינות</p>
 </header>
@@ -129,10 +140,12 @@
 <section>
   <h2>עבודות שבוצעו</h2>
   <div class="gallery">
-    <!-- תמונה זמנית, החלף לאחר מכן לתמונה שלך -->
-    <img src="images/עבודה1.png" alt="עבודה שבוצעה">
+    <img src="https://images.unsplash.com/photo-1581091870627-3b1c1c1b60c5" alt="">
+    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6" alt="">
+    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="">
+    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" alt="">
   </div>
-  <p style="font-size: 14px;">* תמונה להמחשה – ניתן להחליף לתמונה אמיתית</p>
+  <p style="font-size: 14px;">* תמונות להמחשה – ניתן להחליף לתמונות אמיתיות</p>
 </section>
 
 <section>
