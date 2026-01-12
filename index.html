@@ -12,9 +12,11 @@
       color: #333;
     }
 
-    /* כותרת עליונה */
+    /* כותרת עליונה עם תמונה + כחול overlay */
     header {
-      background: #1c1f4a; /* כחול כהה מהלוגו */
+      background: linear-gradient(rgba(28,31,74,0.6), rgba(28,31,74,0.6)), 
+                  url('images/תמונה.png') no-repeat center center;
+      background-size: cover; /* מתאים את התמונה לגודל המלבן */
       color: white;
       padding: 30px 20px;
       text-align: center;
@@ -151,7 +153,7 @@
   <p>לחץ על כפתור הוואטסאפ ונדבר 👇</p>
 </section>
 
-<!-- כפתור וואטסאפ מתוקן -->
+<!-- כפתור וואטסאפ -->
 <a class="whatsapp" 
    href="https://wa.me/972512715253?text=היי%20הגעתי%20אליך%20דרך%20האתר"
    target="_blank">
