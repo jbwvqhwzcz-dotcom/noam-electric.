@@ -6,12 +6,12 @@
   <title>נועם עבודות חשמל | שירותי חשמל לבית ולעסק</title>
   <meta name="description" content="נועם עבודות חשמל – תקלות, לוחות, נקודות, תאורה, תלת פאזי, עמדות טעינה. התקשרו: 051-271-5252" />
   <meta name="theme-color" content="#0b286a" />
+  <meta name="color-scheme" content="dark" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="נועם עבודות חשמל" />
   <meta property="og:description" content="שירותי חשמל לבית ולעסק – מקצועיות, זמינות ואחריות." />
   <meta property="og:type" content="website" />
-  <!-- שים כאן תמונת שיתוף (אפשר הלוגו) -->
   <meta property="og:image" content="logo.png" />
 
   <style>
@@ -44,6 +44,74 @@
     }
 
     a{color:inherit; text-decoration:none}
+
+    /* ===== A11Y ADDITIONS ===== */
+
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      top:10px;
+      right:10px;
+      z-index:9999;
+      padding:12px 14px;
+      border-radius:12px;
+      background:#ffd000;
+      color:#111;
+      font-weight:900;
+      transform: translateY(-150%);
+      transition: transform .2s ease;
+      outline:none;
+    }
+    .skip-link:focus{
+      transform: translateY(0);
+      box-shadow: 0 0 0 4px rgba(255,208,0,.25);
+    }
+
+    /* Visible focus */
+    :focus-visible{
+      outline: 3px solid rgba(255,208,0,.95);
+      outline-offset: 3px;
+    }
+
+    /* Screen reader only */
+    .sr-only{
+      position:absolute !important;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+
+    /* Reduce motion support */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .reveal{transition:none !important; transform:none !important; opacity:1 !important;}
+      *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+    }
+
+    /* Improve contrast for smaller text */
+    .tag, .subnote, .hint, .foot small, .who, .sectionHead p { color: rgba(234,240,255,.86); }
+
+    /* Accessible link focus/hover */
+    .links a:hover, .links a:focus-visible,
+    .mobilePanel a:hover, .mobilePanel a:focus-visible,
+    .miniLinks a:hover, .miniLinks a:focus-visible{
+      background:rgba(255,255,255,.08);
+    }
+
+    /* Form errors */
+    .error{
+      border-color: rgba(255, 80, 80, .7) !important;
+      box-shadow: 0 0 0 4px rgba(255,80,80,.15);
+    }
+    .errorText{
+      color: rgba(255, 160, 160, .95);
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    /* ===== Existing styles ===== */
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
     .topbar{
       position:sticky; top:0; z-index:50;
@@ -73,7 +141,7 @@
       letter-spacing:.2px;
     }
     .brand .tag{
-      font-size:12px; color:var(--muted); font-weight:600;
+      font-size:12px; font-weight:600;
       margin-top:2px;
     }
 
@@ -81,12 +149,12 @@
       display:flex; align-items:center; gap:14px;
     }
     .links a{
-      font-size:14px; color:rgba(234,240,255,.86);
+      font-size:14px; color:rgba(234,240,255,.90);
       padding:10px 10px;
       border-radius:12px;
       transition:.2s;
     }
-    .links a:hover{background:rgba(255,255,255,.06)}
+
     .ctaRow{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -121,12 +189,9 @@
       display:block; padding:12px 10px; border-radius:12px;
       color:rgba(234,240,255,.90);
     }
-    .mobilePanel a:hover{background:rgba(255,255,255,.06)}
 
     /* HERO */
-    .hero{
-      padding:46px 0 22px;
-    }
+    .hero{ padding:46px 0 22px; }
     .heroGrid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -181,7 +246,7 @@
     }
     .check svg{width:14px; height:14px; fill: var(--brand)}
     .heroBtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
-    .subnote{margin-top:10px; font-size:12px; color:rgba(234,240,255,.70)}
+    .subnote{margin-top:10px; font-size:12px;}
 
     /* Lead Card */
     .card{
@@ -207,13 +272,9 @@
     .leadCard > *{position:relative}
     .leadCard h3{margin:0 0 6px; font-size:18px}
     .leadCard p{margin:0 0 14px; color:var(--muted); font-size:13px; line-height:1.55}
-    .form{
-      display:grid; gap:10px;
-    }
-    .field{
-      display:grid; gap:6px;
-    }
-    label{font-size:12px; color:rgba(234,240,255,.82); font-weight:700}
+    .form{ display:grid; gap:10px; }
+    .field{ display:grid; gap:6px; }
+    label{font-size:12px; color:rgba(234,240,255,.90); font-weight:700}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
@@ -232,13 +293,13 @@
       padding:10px 12px;
       border-radius:14px;
       border:1px dashed rgba(255,255,255,.18);
-      color:rgba(234,240,255,.78);
+      color:rgba(234,240,255,.82);
       font-size:12px;
       background: rgba(255,255,255,.04);
     }
     .privacy input{width:16px; height:16px; margin-top:2px}
     .formActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:2px}
-    .hint{font-size:12px; color:rgba(234,240,255,.65); margin-top:6px}
+    .hint{font-size:12px; margin-top:6px}
     .toast{
       margin-top:10px;
       padding:10px 12px;
@@ -261,7 +322,7 @@
       font-size: clamp(22px, 2.6vw, 30px);
       letter-spacing:-.3px;
     }
-    .sectionHead p{margin:0; color:var(--muted); max-width:60ch; line-height:1.55; font-size:14px}
+    .sectionHead p{margin:0; max-width:60ch; line-height:1.55; font-size:14px}
 
     .cards{
       display:grid;
@@ -291,7 +352,7 @@
       border-radius:999px;
       background: rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.12);
-      color:rgba(234,240,255,.85);
+      color:rgba(234,240,255,.90);
       font-weight:800;
       font-size:12px;
     }
@@ -309,8 +370,8 @@
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
     }
     .svc h3{margin:0 0 8px; font-size:16px}
-    .svc ul{margin:0; padding:0 18px 0 0; color:rgba(234,240,255,.84); line-height:1.7; font-size:13px}
-    .svc .tagline{margin-top:10px; color:rgba(234,240,255,.70); font-size:12px}
+    .svc ul{margin:0; padding:0 18px 0 0; color:rgba(234,240,255,.86); line-height:1.7; font-size:13px}
+    .svc .tagline{margin-top:10px; color:rgba(234,240,255,.78); font-size:12px}
 
     /* Pricing */
     .pricing{
@@ -347,8 +408,8 @@
       font-size:28px; font-weight:900; letter-spacing:-.6px;
       margin:10px 0 12px;
     }
-    .price small{font-size:12px; color:rgba(234,240,255,.70); font-weight:700}
-    .priceList{margin:0; padding:0 18px 0 0; color:rgba(234,240,255,.86); line-height:1.75; font-size:13px}
+    .price small{font-size:12px; color:rgba(234,240,255,.78); font-weight:700}
+    .priceList{margin:0; padding:0 18px 0 0; color:rgba(234,240,255,.88); line-height:1.75; font-size:13px}
     .priceActions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
 
     /* Reviews */
@@ -364,8 +425,8 @@
       background: rgba(255,255,255,.05);
     }
     .stars{color: var(--brand); letter-spacing: 1px; font-size:14px; margin-bottom:10px}
-    .review p{margin:0 0 12px; color:rgba(234,240,255,.88); line-height:1.65; font-size:13px}
-    .who{color:rgba(234,240,255,.72); font-size:12px; font-weight:800}
+    .review p{margin:0 0 12px; color:rgba(234,240,255,.90); line-height:1.65; font-size:13px}
+    .who{font-size:12px; font-weight:800}
 
     /* Footer */
     footer{
@@ -376,10 +437,8 @@
     .foot{
       display:flex; gap:16px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
     }
-    .foot small{color:rgba(234,240,255,.65); line-height:1.7}
     .miniLinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     .miniLinks a{padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); font-weight:800; font-size:13px}
-    .miniLinks a:hover{background: rgba(255,255,255,.07)}
 
     /* Floating WhatsApp */
     .float{
@@ -413,30 +472,124 @@
       .brand{min-width:auto}
       .links{display:none}
       .mobileMenuBtn{display:inline-flex}
-      .mobilePanel{display:block}
       .cards, .services, .pricing, .reviews{grid-template-columns:1fr; }
       .grid2{grid-template-columns:1fr}
       .ctaRow{justify-content:flex-start}
       .float{right:12px; bottom:12px}
     }
+ /* ===== Accessibility Widget ===== */
+.a11yFab{
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 80;
+}
+.a11yFab button{
+  display:inline-flex; 
+  align-items:center; 
+  gap:10px;
+  padding:12px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(5,15,34,.75);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  font-weight: 900;
+  cursor:pointer;
+  box-shadow: 0 18px 60px rgba(0,0,0,.25);
+}
+.a11yPanel{
+  position: fixed;
+  left: 16px;
+  bottom: 72px;
+  width: min(320px, calc(100vw - 32px));
+  z-index: 80;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(5,15,34,.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  padding: 12px;
+  display:none;
+}
+.a11yPanel h3{margin:0 0 8px; font-size:14px}
+.a11yGrid{display:grid; grid-template-columns: 1fr 1fr; gap:8px}
+.a11yBtn{
+  width:100%;
+  padding:10px 10px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 800;
+  cursor:pointer;
+}
+.a11yBtn:hover{background: rgba(255,255,255,.10)}
+.a11yRow{display:flex; gap:8px; margin-top:8px}
+.a11yClose{flex:1}
+.a11yNote{margin-top:8px; font-size:12px; color: rgba(234,240,255,.82); line-height:1.5}
+
+/* מצב ניגודיות גבוהה */
+body.a11y-contrast{
+  background:#000 !important;
+  color:#fff !important;
+}
+body.a11y-contrast .topbar,
+body.a11y-contrast .card,
+body.a11y-contrast .miniCard,
+body.a11y-contrast .svc,
+body.a11y-contrast .priceCard,
+body.a11y-contrast .review,
+body.a11y-contrast footer,
+body.a11y-contrast .a11yPanel,
+body.a11y-contrast .float a{
+  background:#000 !important;
+  border-color:#fff !important;
+}
+body.a11y-contrast .btn{
+  background:#000 !important;
+  border-color:#fff !important;
+  color:#fff !important;
+}
+body.a11y-contrast .btn.primary{
+  background:#fff !important;
+  color:#000 !important;
+}
+
+/* הגדלת טקסט */
+html.a11y-font-110{font-size:110%}
+html.a11y-font-120{font-size:120%}
+html.a11y-font-130{font-size:130%}
+
+/* הדגשת קישורים */
+body.a11y-links a{ text-decoration: underline !important; text-underline-offset: 3px; }
+
+/* עצירת אנימציות */
+body.a11y-reduce-motion *{
+  animation: none !important;
+  transition: none !important;
+}
+
   </style>
 </head>
 
 <body>
+  <!-- Skip to content -->
+  <a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+
   <!-- Top bar -->
-  <div class="topbar">
+  <div class="topbar" role="banner">
     <div class="wrap">
       <div class="nav">
         <div class="brand">
-          <!-- החלף לקובץ הלוגו שלך: logo.png -->
-          <img src="logo.png" alt="נועם עבודות חשמל - לוגו" />
+          <img src="logo.png" alt="לוגו של נועם עבודות חשמל" />
           <div>
             <div class="name">נועם עבודות חשמל</div>
             <div class="tag">זרם של איכות ואמינות</div>
           </div>
         </div>
 
-        <nav class="links" aria-label="ניווט">
+        <nav class="links" aria-label="ניווט ראשי">
           <a href="#about">על החברה</a>
           <a href="#why">למה לבחור בנו</a>
           <a href="#services">שירותים</a>
@@ -446,13 +599,13 @@
         </nav>
 
         <div class="ctaRow">
-          <a class="btn small" href="tel:0512715252" aria-label="התקשר עכשיו">התקשר עכשיו</a>
-          <button class="btn small mobileMenuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel">תפריט</button>
-          <a class="btn primary" href="#contact">קבל הצעת מחיר</a>
+          <a class="btn small" href="tel:0512715252" aria-label="התקשר עכשיו 051-271-5252">התקשר עכשיו</a>
+          <button type="button" class="btn small mobileMenuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel">תפריט</button>
+          <a class="btn primary" href="#contact" aria-label="מעבר לטופס לקבלת הצעת מחיר">קבל הצעת מחיר</a>
         </div>
       </div>
 
-      <div class="mobilePanel" id="mobilePanel" style="display:none">
+      <div class="mobilePanel" id="mobilePanel" style="display:none" role="navigation" aria-label="ניווט מובייל">
         <a href="#about">על החברה</a>
         <a href="#why">למה לבחור בנו</a>
         <a href="#services">שירותים</a>
@@ -463,359 +616,364 @@
     </div>
   </div>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="heroGrid">
-        <div class="reveal">
-          <div class="kicker"><span class="dot"></span> זמינות גבוהה • עבודה מסודרת • אחריות</div>
-          <h1>שירותי חשמל לבית ולעסק<br/>שמרגישים כמו חברה גדולה</h1>
-          <p class="lead">
-            אנחנו מטפלים בתקלות, לוחות, נקודות ותאורה – בצורה נקייה, בטוחה ומקצועית.
-            מקבלים ייעוץ והצעת מחיר מהירה, בלי סיבובים.
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="reveal">
+            <div class="kicker"><span class="dot" aria-hidden="true"></span> זמינות גבוהה • עבודה מסודרת • אחריות</div>
+            <h1>שירותי חשמל לבית ולעסק<br/>שמרגישים כמו חברה גדולה</h1>
+            <p class="lead">
+              אנחנו מטפלים בתקלות, לוחות, נקודות ותאורה – בצורה נקייה, בטוחה ומקצועית.
+              מקבלים ייעוץ והצעת מחיר מהירה, בלי סיבובים.
+            </p>
+
+            <ul class="bullets">
+              <li>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+                </span>
+                <span><b>תקשורת ברורה</b> – תיאום, הגעה בזמן והסבר לפני כל פעולה</span>
+              </li>
+              <li>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+                </span>
+                <span><b>סטנדרט בטיחות</b> – עבודה לפי תקן, ציוד איכותי וסדר בלוח</span>
+              </li>
+              <li>
+                <span class="check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+                </span>
+                <span><b>פתרון שמחזיק</b> – לא “כיבוי שריפה”, אלא תיקון נכון מהשורש</span>
+              </li>
+            </ul>
+
+            <div class="heroBtns" role="group" aria-label="כפתורי פעולה ראשיים">
+              <a class="btn primary" href="tel:0512715252" aria-label="חיוג 051-271-5252">📞 051-271-5252</a>
+              <a class="btn" href="#services" aria-label="מעבר לשירותים">לשירותים</a>
+              <a class="btn" id="waBtnTop" href="#" rel="noopener" aria-label="פתיחת וואטסאפ להצעת מחיר">WhatsApp</a>
+            </div>
+            <div class="subnote">ללא התחייבות • מענה אישי • אפשרות לתיאום מהיר</div>
+          </div>
+
+          <!-- Lead form card -->
+          <aside class="card leadCard reveal" id="contact" aria-label="טופס יצירת קשר">
+            <h2 class="sr-only">טופס יצירת קשר</h2>
+            <h3>קבלו הצעת מחיר תוך 5 דקות</h3>
+            <p>השאירו פרטים ונחזור אליכם עם שאלות קצרות + הערכת מחיר. אפשר גם בוואטסאפ.</p>
+
+            <form class="form" id="leadForm" novalidate>
+              <!-- הודעות שגיאה לקורא מסך -->
+              <div id="formErrors" class="sr-only" aria-live="polite"></div>
+
+              <div class="grid2">
+                <div class="field">
+                  <label for="fullName">שם מלא</label>
+                  <input id="fullName" name="fullName" placeholder="לדוגמה: ישראל ישראלי" autocomplete="name" required />
+                </div>
+                <div class="field">
+                  <label for="phone">טלפון</label>
+                  <input id="phone" name="phone" placeholder="05X-XXXXXXX" inputmode="tel" autocomplete="tel" required />
+                </div>
+              </div>
+
+              <div class="grid2">
+                <div class="field">
+                  <label for="service">מה צריך?</label>
+                  <select id="service" name="service" required>
+                    <option value="" selected disabled>בחרו שירות</option>
+                    <option>תקלה / קצר / קופץ פחת</option>
+                    <option>שדרוג/סידור לוח חשמל</option>
+                    <option>הוספת נקודות / שקעים / מפסקים</option>
+                    <option>תאורה (ספוטים/פסי לד/גינה)</option>
+                    <option>תלת פאזי</option>
+                    <option>עמדת טעינה לרכב חשמלי</option>
+                    <option>אחר</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="city">עיר / אזור</label>
+                  <input id="city" name="city" placeholder="לדוגמה: ירושלים / גבעת זאב" autocomplete="address-level2" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="msg">פרטים בקצרה</label>
+                <textarea id="msg" name="msg" placeholder="מה קורה? מתי נוח להגיע? (אם יש תמונה אפשר לשלוח בוואטסאפ)"></textarea>
+              </div>
+
+              <div class="privacy">
+                <input id="consent" type="checkbox" checked aria-describedby="consentDesc" />
+                <div id="consentDesc">
+                  <b>שמירה מלאה על פרטיות.</b><br/>
+                  אפשר לבקש שנפסיק לפנות בכל רגע.
+                </div>
+              </div>
+
+              <div class="formActions" role="group" aria-label="פעולות טופס">
+                <button class="btn primary" type="submit" aria-label="שליחת טופס והמשך לוואטסאפ עם הפרטים">שלחו לי הצעה</button>
+                <a class="btn" id="waBtnForm" href="#" rel="noopener" aria-label="שליחה בוואטסאפ בלי הטופס">שליחה בוואטסאפ</a>
+                <a class="btn" href="tel:0512715252" aria-label="שיחה עכשיו 051-271-5252">שיחה עכשיו</a>
+              </div>
+
+              <div class="hint">טיפ: אם זו תקלה דחופה – עדיף להתקשר.</div>
+              <div class="toast" id="toast" role="status" aria-live="polite">נשלח! אם לא קיבלתם אישור – אפשר ללחוץ על WhatsApp ולשלוח לנו.</div>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <div>
+            <div class="pill">על החברה</div>
+            <h2>נועם עבודות חשמל – ביצוע נקי, בטוח ומדויק</h2>
+          </div>
+          <p>
+            אנחנו נותנים שירות לבתים ועסקים: אבחון תקלות, שדרוג לוחות, נקודות, תאורה ותשתיות.
+            המטרה: שתהיו רגועים – גם בבטיחות וגם בתוצאה.
           </p>
+        </div>
 
-          <ul class="bullets">
-            <li>
-              <span class="check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-              </span>
-              <span><b>תקשורת ברורה</b> – תיאום, הגעה בזמן והסבר לפני כל פעולה</span>
-            </li>
-            <li>
-              <span class="check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-              </span>
-              <span><b>סטנדרט בטיחות</b> – עבודה לפי תקן, ציוד איכותי וסדר בלוח</span>
-            </li>
-            <li>
-              <span class="check" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M9.0 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-              </span>
-              <span><b>פתרון שמחזיק</b> – לא “כיבוי שריפה”, אלא תיקון נכון מהשורש</span>
-            </li>
-          </ul>
-
-          <div class="heroBtns">
-            <a class="btn primary" href="tel:0512715252">📞 051-271-5252</a>
-            <a class="btn" href="#services">לשירותים</a>
-            <a class="btn" id="waBtnTop" href="#" rel="noopener">WhatsApp</a>
+        <div class="cards">
+          <div class="miniCard reveal">
+            <div class="icon" aria-hidden="true">⚡</div>
+            <h3>סטנדרט עבודה גבוה</h3>
+            <p>תכנון לפני ביצוע, סימון מסודר, וסיום עבודה נקי – בלי “אלתורים”.</p>
           </div>
-          <div class="subnote">ללא התחייבות • מענה אישי • אפשרות לתיאום מהיר</div>
-        </div>
-
-        <!-- Lead form card -->
-        <aside class="card leadCard reveal" id="contact" aria-label="טופס יצירת קשר">
-          <h3>קבלו הצעת מחיר תוך 5 דקות</h3>
-          <p>השאירו פרטים ונחזור אליכם עם שאלות קצרות + הערכת מחיר. אפשר גם בוואטסאפ.</p>
-
-          <!-- אפשר להחליף ל-Formspree / מערכת לידים (שימו action) -->
-          <form class="form" id="leadForm">
-            <div class="grid2">
-              <div class="field">
-                <label for="fullName">שם מלא</label>
-                <input id="fullName" name="fullName" placeholder="לדוגמה: ישראל ישראלי" autocomplete="name" required />
-              </div>
-              <div class="field">
-                <label for="phone">טלפון</label>
-                <input id="phone" name="phone" placeholder="05X-XXXXXXX" inputmode="tel" autocomplete="tel" required />
-              </div>
-            </div>
-
-            <div class="grid2">
-              <div class="field">
-                <label for="service">מה צריך?</label>
-                <select id="service" name="service" required>
-                  <option value="" selected disabled>בחרו שירות</option>
-                  <option>תקלה / קצר / קופץ פחת</option>
-                  <option>שדרוג/סידור לוח חשמל</option>
-                  <option>הוספת נקודות / שקעים / מפסקים</option>
-                  <option>תאורה (ספוטים/פסי לד/גינה)</option>
-                  <option>תלת פאזי</option>
-                  <option>עמדת טעינה לרכב חשמלי</option>
-                  <option>אחר</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="city">עיר / אזור</label>
-                <input id="city" name="city" placeholder="לדוגמה: ירושלים / גבעת זאב" autocomplete="address-level2" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="msg">פרטים בקצרה</label>
-              <textarea id="msg" name="msg" placeholder="מה קורה? מתי נוח להגיע? (אם יש תמונה אפשר לשלוח בוואטסאפ)"></textarea>
-            </div>
-
-            <div class="privacy">
-              <input id="consent" type="checkbox" checked />
-              <div>
-                <b>שמירה מלאה על פרטיות.</b><br/>
-                אפשר לבקש שנפסיק לפנות בכל רגע.
-              </div>
-            </div>
-
-            <div class="formActions">
-              <button class="btn primary" type="submit">שלחו לי הצעה</button>
-              <a class="btn" id="waBtnForm" href="#" rel="noopener">שליחה בוואטסאפ</a>
-              <a class="btn" href="tel:0512715252">שיחה עכשיו</a>
-            </div>
-
-            <div class="hint">טיפ: אם זו תקלה דחופה – עדיף להתקשר.</div>
-            <div class="toast" id="toast">נשלח! אם לא קיבלתם אישור – אפשר ללחוץ על WhatsApp ולשלוח לנו.</div>
-          </form>
-        </aside>
-      </div>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section id="about">
-    <div class="wrap">
-      <div class="sectionHead reveal">
-        <div>
-          <div class="pill">על החברה</div>
-          <h2>נועם עבודות חשמל – ביצוע נקי, בטוח ומדויק</h2>
-        </div>
-        <p>
-          אנחנו נותנים שירות לבתים ועסקים: אבחון תקלות, שדרוג לוחות, נקודות, תאורה ותשתיות.
-          המטרה: שתהיו רגועים – גם בבטיחות וגם בתוצאה.
-        </p>
-      </div>
-
-      <div class="cards">
-        <div class="miniCard reveal">
-          <div class="icon">⚡</div>
-          <h3>סטנדרט עבודה גבוה</h3>
-          <p>תכנון לפני ביצוע, סימון מסודר, וסיום עבודה נקי – בלי “אלתורים”.</p>
-        </div>
-        <div class="miniCard reveal">
-          <div class="icon">🛡️</div>
-          <h3>בטיחות מעל הכול</h3>
-          <p>ציוד איכותי, בדיקות, והקפדה על תקינות חיבורים והגנות בלוח.</p>
-        </div>
-        <div class="miniCard reveal">
-          <div class="icon">⏱️</div>
-          <h3>זמינות ותיאום</h3>
-          <p>מענה מהיר, הגעה מתואמת, ושקיפות מלאה על מחיר ותהליך.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why -->
-  <section id="why">
-    <div class="wrap">
-      <div class="sectionHead reveal">
-        <div>
-          <div class="pill">למה לבחור בנו</div>
-          <h2>מה אתם מקבלים כשעובדים איתנו</h2>
-        </div>
-        <p>
-          שירות שמרגיש מקצועי: תהליך ברור, הסברים, וניהול עבודה מסודר – מהשיחה הראשונה ועד הסגירה.
-        </p>
-      </div>
-
-      <div class="services">
-        <div class="svc reveal">
-          <h3>אבחון מדויק</h3>
-          <ul>
-            <li>איתור מקור התקלה ולא רק “לאפס פחת”</li>
-            <li>בדיקה לפי סימפטומים והיסטוריה של המתקן</li>
-            <li>המלצות ברורות לפתרון</li>
-          </ul>
-          <div class="tagline">מטרתנו: פתרון שנשאר יציב לאורך זמן.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>ביצוע נקי ומסודר</h3>
-          <ul>
-            <li>קיבוע תעלות/צנרת בצורה ישרה</li>
-            <li>סדר בלוח: סימון, הידוק, סגירה</li>
-            <li>סיום עבודה נקי</li>
-          </ul>
-          <div class="tagline">עבודה שמכבדת את הבית/העסק.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>שקיפות והתחייבות</h3>
-          <ul>
-            <li>הסבר לפני ביצוע + אישור מחיר</li>
-            <li>עדכון על כל שינוי חריג</li>
-            <li>אחריות על העבודה לפי סוג השירות</li>
-          </ul>
-          <div class="tagline">בלי הפתעות, בלי אותיות קטנות.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <div class="wrap">
-      <div class="sectionHead reveal">
-        <div>
-          <div class="pill">שירותים</div>
-          <h2>מגוון שירותי חשמל</h2>
-        </div>
-        <p>בחרו מה רלוונטי לכם – ואם לא בטוחים, פשוט כתבו בטופס ונכוון אתכם.</p>
-      </div>
-
-      <div class="services">
-        <div class="svc reveal">
-          <h3>תקלות וקצרים</h3>
-          <ul>
-            <li>פחת/מאמ״ת קופץ</li>
-            <li>ריח שרוף/חימום שקע</li>
-            <li>נפילות חשמל נקודתיות</li>
-          </ul>
-          <div class="tagline">כולל אבחון וסידור מקור הבעיה.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>לוחות חשמל</h3>
-          <ul>
-            <li>שדרוג/סידור לוח</li>
-            <li>הוספת מעגלים והגנות</li>
-            <li>החלפת רכיבים תקולים</li>
-          </ul>
-          <div class="tagline">סדר בלוח = שקט בראש.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>נקודות, שקעים ותאורה</h3>
-          <ul>
-            <li>הוספת שקעים/מפסקים</li>
-            <li>ספוטים, פסי לד, תאורת חוץ</li>
-            <li>הכנות למטבח/מזגנים</li>
-          </ul>
-          <div class="tagline">תכנון נכון לפי עומסים ושימוש.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>תלת פאזי</h3>
-          <ul>
-            <li>הכנה/שדרוג תשתית</li>
-            <li>התאמה לצרכים (מזגנים/תנור/נגריה)</li>
-            <li>סידור חלוקת עומסים</li>
-          </ul>
-          <div class="tagline">מומלץ כשיש עומסים גבוהים בבית.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>עמדות טעינה לרכב חשמלי</h3>
-          <ul>
-            <li>תשתית והזנה ייעודית</li>
-            <li>התקנה וניהול כבלים מסודר</li>
-            <li>הכנה לבודק/תיאומים לפי הצורך</li>
-          </ul>
-          <div class="tagline">פתרון בטוח ונוח לשימוש יום-יומי.</div>
-        </div>
-
-        <div class="svc reveal">
-          <h3>בדיקות/שדרוגים קטנים</h3>
-          <ul>
-            <li>החלפת מפסקים ושקעים</li>
-            <li>תיקון חיבורים רופפים</li>
-            <li>התייעצות ותכנון</li>
-          </ul>
-          <div class="tagline">לפעמים שינוי קטן עושה הבדל גדול.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Packages -->
-  <section id="packages">
-    <div class="wrap">
-      <div class="sectionHead reveal">
-        <div>
-          <div class="pill">חבילות</div>
-          <h2>חבילות פופולריות</h2>
-        </div>
-        <p>דוגמאות לחבילות נפוצות (אפשר להתאים לפי בית/עסק). למחיר מדויק – נשאל כמה שאלות קצרות.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="priceCard reveal">
-          <h3>Basic — ביקור שירות</h3>
-          <div class="price">בדיקה + פתרון ראשוני<br/><small>מתאים לתקלות נקודתיות</small></div>
-          <ul class="priceList">
-            <li>אבחון תקלה</li>
-            <li>פתרון בסיסי במקום (ככל שניתן)</li>
-            <li>המלצה מסודרת להמשך</li>
-            <li>שקיפות מלאה לפני כל החלפה</li>
-          </ul>
-          <div class="priceActions">
-            <a class="btn primary" href="#contact">לקבלת הצעה</a>
-            <a class="btn" href="tel:0512715252">להתקשר</a>
+          <div class="miniCard reveal">
+            <div class="icon" aria-hidden="true">🛡️</div>
+            <h3>בטיחות מעל הכול</h3>
+            <p>ציוד איכותי, בדיקות, והקפדה על תקינות חיבורים והגנות בלוח.</p>
           </div>
-        </div>
-
-        <div class="priceCard featured reveal">
-          <div class="badge">הכי מבוקש</div>
-          <h3>Pro — שדרוג/סידור לוח</h3>
-          <div class="price">לוח מסודר + הגנות<br/><small>לשיפור בטיחות ושקט</small></div>
-          <ul class="priceList">
-            <li>סידור וחיזוק חיבורים</li>
-            <li>סימון/תיוג בסיסי</li>
-            <li>בדיקת עומסים וחלוקה</li>
-            <li>שדרוג רכיבים לפי צורך</li>
-          </ul>
-          <div class="priceActions">
-            <a class="btn primary" href="#contact">לקבלת הצעה</a>
-            <a class="btn" id="waBtnPackages" href="#" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="priceCard reveal">
-          <h3>Premium — פרויקט תשתית</h3>
-          <div class="price">נקודות/תאורה/טעינה<br/><small>לדירה/עסק/שיפוץ</small></div>
-          <ul class="priceList">
-            <li>תכנון מסלול ותשתית</li>
-            <li>ביצוע נקי ומדויק</li>
-            <li>הכנות חכמות לעתיד</li>
-            <li>ליווי עד סגירה</li>
-          </ul>
-          <div class="priceActions">
-            <a class="btn primary" href="#contact">לקבלת הצעה</a>
-            <a class="btn" href="#services">לשירותים</a>
+          <div class="miniCard reveal">
+            <div class="icon" aria-hidden="true">⏱️</div>
+            <h3>זמינות ותיאום</h3>
+            <p>מענה מהיר, הגעה מתואמת, ושקיפות מלאה על מחיר ותהליך.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Reviews -->
-  <section id="reviews">
-    <div class="wrap">
-      <div class="sectionHead reveal">
-        <div>
-          <div class="pill">ביקורות</div>
-          <h2>לקוחות מספרים</h2>
+    <!-- Why -->
+    <section id="why">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <div>
+            <div class="pill">למה לבחור בנו</div>
+            <h2>מה אתם מקבלים כשעובדים איתנו</h2>
+          </div>
+          <p>
+            שירות שמרגיש מקצועי: תהליך ברור, הסברים, וניהול עבודה מסודר – מהשיחה הראשונה ועד הסגירה.
+          </p>
         </div>
-        <p>כאן שמים 3–6 ביקורות אמיתיות (שם פרטי + עיר). אפשר להחליף טקסטים בקלות.</p>
-      </div>
 
-      <div class="reviews">
-        <div class="review reveal">
-          <div class="stars">★★★★★</div>
-          <p>“הגיע בזמן, הסביר מה הבעיה, סידר את הלוח בצורה נקייה ומסודרת. מרגיש בטוח הרבה יותר.”</p>
-          <div class="who">אורן • ירושלים</div>
-        </div>
-        <div class="review reveal">
-          <div class="stars">★★★★★</div>
-          <p>“פתר תקלה שהקפיצה פחת כבר כמה ימים. עבודה מקצועית, בלי בלגן ובמחיר הוגן.”</p>
-          <div class="who">נועה • גבעת זאב</div>
-        </div>
-        <div class="review reveal">
-          <div class="stars">★★★★★</div>
-          <p>“התקין לי תאורה חדשה בסלון ונקודות במטבח. ביצוע מדויק, גימור יפה, ותיאום קל.”</p>
-          <div class="who">דניאל • מודיעין</div>
+        <div class="services">
+          <div class="svc reveal">
+            <h3>אבחון מדויק</h3>
+            <ul>
+              <li>איתור מקור התקלה ולא רק “לאפס פחת”</li>
+              <li>בדיקה לפי סימפטומים והיסטוריה של המתקן</li>
+              <li>המלצות ברורות לפתרון</li>
+            </ul>
+            <div class="tagline">מטרתנו: פתרון שנשאר יציב לאורך זמן.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>ביצוע נקי ומסודר</h3>
+            <ul>
+              <li>קיבוע תעלות/צנרת בצורה ישרה</li>
+              <li>סדר בלוח: סימון, הידוק, סגירה</li>
+              <li>סיום עבודה נקי</li>
+            </ul>
+            <div class="tagline">עבודה שמכבדת את הבית/העסק.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>שקיפות והתחייבות</h3>
+            <ul>
+              <li>הסבר לפני ביצוע + אישור מחיר</li>
+              <li>עדכון על כל שינוי חריג</li>
+              <li>אחריות על העבודה לפי סוג השירות</li>
+            </ul>
+            <div class="tagline">בלי הפתעות, בלי אותיות קטנות.</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <div>
+            <div class="pill">שירותים</div>
+            <h2>מגוון שירותי חשמל</h2>
+          </div>
+          <p>בחרו מה רלוונטי לכם – ואם לא בטוחים, פשוט כתבו בטופס ונכוון אתכם.</p>
+        </div>
+
+        <div class="services">
+          <div class="svc reveal">
+            <h3>תקלות וקצרים</h3>
+            <ul>
+              <li>פחת/מאמ״ת קופץ</li>
+              <li>ריח שרוף/חימום שקע</li>
+              <li>נפילות חשמל נקודתיות</li>
+            </ul>
+            <div class="tagline">כולל אבחון וסידור מקור הבעיה.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>לוחות חשמל</h3>
+            <ul>
+              <li>שדרוג/סידור לוח</li>
+              <li>הוספת מעגלים והגנות</li>
+              <li>החלפת רכיבים תקולים</li>
+            </ul>
+            <div class="tagline">סדר בלוח = שקט בראש.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>נקודות, שקעים ותאורה</h3>
+            <ul>
+              <li>הוספת שקעים/מפסקים</li>
+              <li>ספוטים, פסי לד, תאורת חוץ</li>
+              <li>הכנות למטבח/מזגנים</li>
+            </ul>
+            <div class="tagline">תכנון נכון לפי עומסים ושימוש.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>תלת פאזי</h3>
+            <ul>
+              <li>הכנה/שדרוג תשתית</li>
+              <li>התאמה לצרכים (מזגנים/תנור/נגריה)</li>
+              <li>סידור חלוקת עומסים</li>
+            </ul>
+            <div class="tagline">מומלץ כשיש עומסים גבוהים בבית.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>עמדות טעינה לרכב חשמלי</h3>
+            <ul>
+              <li>תשתית והזנה ייעודית</li>
+              <li>התקנה וניהול כבלים מסודר</li>
+              <li>הכנה לבודק/תיאומים לפי הצורך</li>
+            </ul>
+            <div class="tagline">פתרון בטוח ונוח לשימוש יום-יומי.</div>
+          </div>
+
+          <div class="svc reveal">
+            <h3>בדיקות/שדרוגים קטנים</h3>
+            <ul>
+              <li>החלפת מפסקים ושקעים</li>
+              <li>תיקון חיבורים רופפים</li>
+              <li>התייעצות ותכנון</li>
+            </ul>
+            <div class="tagline">לפעמים שינוי קטן עושה הבדל גדול.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <div>
+            <div class="pill">חבילות</div>
+            <h2>חבילות פופולריות</h2>
+          </div>
+          <p>דוגמאות לחבילות נפוצות (אפשר להתאים לפי בית/עסק). למחיר מדויק – נשאל כמה שאלות קצרות.</p>
+        </div>
+
+        <div class="pricing">
+          <div class="priceCard reveal">
+            <h3>Basic — ביקור שירות</h3>
+            <div class="price">בדיקה + פתרון ראשוני<br/><small>מתאים לתקלות נקודתיות</small></div>
+            <ul class="priceList">
+              <li>אבחון תקלה</li>
+              <li>פתרון בסיסי במקום (ככל שניתן)</li>
+              <li>המלצה מסודרת להמשך</li>
+              <li>שקיפות מלאה לפני כל החלפה</li>
+            </ul>
+            <div class="priceActions">
+              <a class="btn primary" href="#contact" aria-label="לקבלת הצעה - מעבר לטופס">לקבלת הצעה</a>
+              <a class="btn" href="tel:0512715252" aria-label="להתקשר 051-271-5252">להתקשר</a>
+            </div>
+          </div>
+
+          <div class="priceCard featured reveal">
+            <div class="badge" aria-label="הכי מבוקש">הכי מבוקש</div>
+            <h3>Pro — שדרוג/סידור לוח</h3>
+            <div class="price">לוח מסודר + הגנות<br/><small>לשיפור בטיחות ושקט</small></div>
+            <ul class="priceList">
+              <li>סידור וחיזוק חיבורים</li>
+              <li>סימון/תיוג בסיסי</li>
+              <li>בדיקת עומסים וחלוקה</li>
+              <li>שדרוג רכיבים לפי צורך</li>
+            </ul>
+            <div class="priceActions">
+              <a class="btn primary" href="#contact" aria-label="לקבלת הצעה - מעבר לטופס">לקבלת הצעה</a>
+              <a class="btn" id="waBtnPackages" href="#" rel="noopener" aria-label="פתיחת וואטסאפ להצעת מחיר">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="priceCard reveal">
+            <h3>Premium — פרויקט תשתית</h3>
+            <div class="price">נקודות/תאורה/טעינה<br/><small>לדירה/עסק/שיפוץ</small></div>
+            <ul class="priceList">
+              <li>תכנון מסלול ותשתית</li>
+              <li>ביצוע נקי ומדויק</li>
+              <li>הכנות חכמות לעתיד</li>
+              <li>ליווי עד סגירה</li>
+            </ul>
+            <div class="priceActions">
+              <a class="btn primary" href="#contact" aria-label="לקבלת הצעה - מעבר לטופס">לקבלת הצעה</a>
+              <a class="btn" href="#services" aria-label="מעבר לשירותים">לשירותים</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <div>
+            <div class="pill">ביקורות</div>
+            <h2>לקוחות מספרים</h2>
+          </div>
+          <p>כאן שמים 3–6 ביקורות אמיתיות (שם פרטי + עיר). אפשר להחליף טקסטים בקלות.</p>
+        </div>
+
+        <div class="reviews">
+          <div class="review reveal" aria-label="ביקורת לקוח">
+            <div class="stars" aria-label="דירוג 5 מתוך 5">★★★★★</div>
+            <p>“הגיע בזמן, הסביר מה הבעיה, סידר את הלוח בצורה נקייה ומסודרת. מרגיש בטוח הרבה יותר.”</p>
+            <div class="who">אורן • ירושלים</div>
+          </div>
+          <div class="review reveal" aria-label="ביקורת לקוח">
+            <div class="stars" aria-label="דירוג 5 מתוך 5">★★★★★</div>
+            <p>“פתר תקלה שהקפיצה פחת כבר כמה ימים. עבודה מקצועית, בלי בלגן ובמחיר הוגן.”</p>
+            <div class="who">נועה • גבעת זאב</div>
+          </div>
+          <div class="review reveal" aria-label="ביקורת לקוח">
+            <div class="stars" aria-label="דירוג 5 מתוך 5">★★★★★</div>
+            <p>“התקין לי תאורה חדשה בסלון ונקודות במטבח. ביצוע מדויק, גימור יפה, ותיאום קל.”</p>
+            <div class="who">דניאל • מודיעין</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -823,7 +981,7 @@
       <div class="foot">
         <div>
           <div class="brand" style="min-width:auto">
-            <img src="logo.png" alt="לוגו" />
+            <img src="logo.png" alt="לוגו של נועם עבודות חשמל" />
             <div>
               <div class="name">נועם עבודות חשמל</div>
               <div class="tag">051-271-5252</div>
@@ -835,10 +993,10 @@
           </small>
         </div>
 
-        <div class="miniLinks">
-          <a href="tel:0512715252">התקשר</a>
-          <a id="waBtnFooter" href="#" rel="noopener">WhatsApp</a>
-          <a href="#contact">טופס</a>
+        <div class="miniLinks" aria-label="קישורים מהירים">
+          <a href="tel:0512715252" aria-label="התקשר 051-271-5252">התקשר</a>
+          <a id="waBtnFooter" href="#" rel="noopener" aria-label="פתיחת וואטסאפ">WhatsApp</a>
+          <a href="#contact" aria-label="מעבר לטופס">טופס</a>
         </div>
       </div>
     </div>
@@ -846,14 +1004,14 @@
 
   <!-- Floating CTA -->
   <div class="float" aria-label="כפתורים צפים">
-    <a class="primary" href="tel:0512715252">📞 התקשר עכשיו</a>
-    <a id="waBtnFloat" href="#" rel="noopener">💬 WhatsApp</a>
+    <a class="primary" href="tel:0512715252" aria-label="חיוג מהיר 051-271-5252">📞 התקשר עכשיו</a>
+    <a id="waBtnFloat" href="#" rel="noopener" aria-label="פתיחת שיחה בוואטסאפ">💬 WhatsApp</a>
   </div>
 
   <script>
-    // ====== SETTINGS (עדכן אם צריך) ======
+    // ====== SETTINGS ======
     const PHONE_DISPLAY = "051-271-5252";
-    const PHONE_PLAIN   = "0512715252"; // ללא מקפים
+    const PHONE_PLAIN   = "0512715252";
     const WHATSAPP_NUMBER_INTL = "972512715252"; // ישראל: 972 + מספר בלי 0
 
     const DEFAULT_WA_MESSAGE =
@@ -863,25 +1021,46 @@
 שירות:
 פרטים בקצרה:`.trim();
 
-    // ====== Mobile menu ======
+    // ====== Mobile menu (accessible) ======
     const menuBtn = document.getElementById("menuBtn");
     const mobilePanel = document.getElementById("mobilePanel");
+
+    function openMenu(){
+      if (!mobilePanel || !menuBtn) return;
+      mobilePanel.style.display = "block";
+      menuBtn.setAttribute("aria-expanded", "true");
+      menuBtn.textContent = "סגור";
+      const firstLink = mobilePanel.querySelector("a");
+      firstLink?.focus();
+    }
+    function closeMenu(){
+      if (!mobilePanel || !menuBtn) return;
+      mobilePanel.style.display = "none";
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "תפריט";
+    }
+
     if (menuBtn) {
       menuBtn.addEventListener("click", () => {
-        const open = mobilePanel.style.display === "block";
-        mobilePanel.style.display = open ? "none" : "block";
-        menuBtn.setAttribute("aria-expanded", String(!open));
-        menuBtn.textContent = open ? "תפריט" : "סגור";
+        const isOpen = mobilePanel && mobilePanel.style.display === "block";
+        isOpen ? closeMenu() : openMenu();
       });
     }
 
     // Close mobile panel on link click
     mobilePanel?.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
-        mobilePanel.style.display = "none";
-        menuBtn?.setAttribute("aria-expanded", "false");
-        if (menuBtn) menuBtn.textContent = "תפריט";
+        closeMenu();
+        menuBtn?.focus();
       });
+    });
+
+    // Close on ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobilePanel && mobilePanel.style.display === "block") {
+        closeMenu();
+        menuBtn?.focus();
+      }
     });
 
     // ====== WhatsApp links ======
@@ -890,13 +1069,13 @@
       return `https://wa.me/${WHATSAPP_NUMBER_INTL}?text=${txt}`;
     }
 
-    const waBtns = [
-      "waBtnTop","waBtnForm","waBtnPackages","waBtnFooter","waBtnFloat"
-    ].map(id => document.getElementById(id)).filter(Boolean);
+    const waBtns = ["waBtnTop","waBtnForm","waBtnPackages","waBtnFooter","waBtnFloat"]
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
 
     waBtns.forEach(btn => btn.href = waLink(DEFAULT_WA_MESSAGE));
 
-    // ====== Lead form (demo: opens WhatsApp with filled details) ======
+    // ====== Lead form (accessible validation + open WA) ======
     const form = document.getElementById("leadForm");
     const toast = document.getElementById("toast");
 
@@ -907,20 +1086,71 @@
     form?.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const name = document.getElementById("fullName")?.value?.trim() || "";
-      const phone = document.getElementById("phone")?.value?.trim() || "";
-      const service = document.getElementById("service")?.value?.trim() || "";
-      const city = document.getElementById("city")?.value?.trim() || "";
-      const msg = document.getElementById("msg")?.value?.trim() || "";
+      const nameEl = document.getElementById("fullName");
+      const phoneEl = document.getElementById("phone");
+      const serviceEl = document.getElementById("service");
+      const cityEl = document.getElementById("city");
+      const msgEl = document.getElementById("msg");
+      const errorsEl = document.getElementById("formErrors");
 
-      // Basic validation
-      if (!name || !phone || !service){
-        alert("נא למלא שם, טלפון ושירות.");
-        return;
+      const name = nameEl?.value?.trim() || "";
+      const phone = phoneEl?.value?.trim() || "";
+      const service = serviceEl?.value?.trim() || "";
+      const city = cityEl?.value?.trim() || "";
+      const msg = msgEl?.value?.trim() || "";
+
+      function setError(el, msg){
+        if (!el) return;
+        el.classList.add("error");
+        el.setAttribute("aria-invalid", "true");
+        let err = el.parentElement?.querySelector(".errorText");
+        if (!err){
+          err = document.createElement("div");
+          err.className = "errorText";
+          err.id = el.id + "-error";
+          el.parentElement.appendChild(err);
+        }
+        err.textContent = msg;
+        el.setAttribute("aria-describedby", err.id);
       }
+
+      function clearError(el){
+        if (!el) return;
+        el.classList.remove("error");
+        el.removeAttribute("aria-invalid");
+        const err = el.parentElement?.querySelector(".errorText");
+        if (err) err.remove();
+        el.removeAttribute("aria-describedby");
+      }
+
+      [nameEl, phoneEl, serviceEl].forEach(clearError);
+      if (errorsEl) errorsEl.textContent = "";
+
+      let hasError = false;
+
+      if (!name){
+        setError(nameEl, "נא למלא שם מלא.");
+        hasError = true;
+      }
+      if (!phone){
+        setError(phoneEl, "נא למלא מספר טלפון.");
+        hasError = true;
+      }
+      if (!service){
+        setError(serviceEl, "נא לבחור שירות.");
+        hasError = true;
+      }
+
       const digits = normalizePhone(phone);
-      if (digits.length < 9){
-        alert("מספר הטלפון נראה קצר מדי. בדוק שוב.");
+      if (!hasError && digits.length < 9){
+        setError(phoneEl, "מספר הטלפון נראה קצר מדי. בדוק שוב.");
+        hasError = true;
+      }
+
+      if (hasError){
+        if (errorsEl) errorsEl.textContent = "יש שגיאות בטופס. בדוק את השדות המסומנים.";
+        const firstInvalid = form.querySelector("[aria-invalid='true']");
+        firstInvalid?.focus();
         return;
       }
 
@@ -932,13 +1162,11 @@
 שירות: ${service}
 פרטים: ${msg || "-"}`;
 
-      // Show toast
       if (toast){
         toast.style.display = "block";
         setTimeout(()=> toast.style.display = "none", 6500);
       }
 
-      // Open WhatsApp with details (אפשר לשנות לשליחה לשרת)
       window.open(waLink(composed), "_blank", "noopener,noreferrer");
     });
 
@@ -950,6 +1178,110 @@
       });
     }, {threshold: .12});
     els.forEach(el=>io.observe(el));
+ // ===== Accessibility Widget Logic =====
+const a11yToggle = document.getElementById("a11yToggle");
+const a11yPanel  = document.getElementById("a11yPanel");
+const closeA11y  = document.getElementById("closeA11y");
+
+const fontPlus = document.getElementById("fontPlus");
+const fontMinus = document.getElementById("fontMinus");
+const toggleContrast = document.getElementById("toggleContrast");
+const toggleLinks = document.getElementById("toggleLinks");
+const toggleMotion = document.getElementById("toggleMotion");
+const resetA11y = document.getElementById("resetA11y");
+
+const FONT_CLASSES = ["a11y-font-110","a11y-font-120","a11y-font-130"];
+
+function saveState(){
+  const state = {
+    fontClass: FONT_CLASSES.find(c => document.documentElement.classList.contains(c)) || "",
+    contrast: document.body.classList.contains("a11y-contrast"),
+    links: document.body.classList.contains("a11y-links"),
+    motion: document.body.classList.contains("a11y-reduce-motion")
+  };
+  localStorage.setItem("a11yState", JSON.stringify(state));
+}
+
+function loadState(){
+  try{
+    const state = JSON.parse(localStorage.getItem("a11yState") || "{}");
+    FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+    if (state.fontClass) document.documentElement.classList.add(state.fontClass);
+
+    document.body.classList.toggle("a11y-contrast", !!state.contrast);
+    document.body.classList.toggle("a11y-links", !!state.links);
+    document.body.classList.toggle("a11y-reduce-motion", !!state.motion);
+  }catch{}
+}
+
+function openA11y(){
+  if (!a11yPanel || !a11yToggle) return;
+  a11yPanel.style.display = "block";
+  a11yToggle.setAttribute("aria-expanded", "true");
+  a11yPanel.querySelector("button")?.focus();
+  saveState();
+}
+function closeA11yPanel(){
+  if (!a11yPanel || !a11yToggle) return;
+  a11yPanel.style.display = "none";
+  a11yToggle.setAttribute("aria-expanded", "false");
+  a11yToggle.focus();
+  saveState();
+}
+
+a11yToggle?.addEventListener("click", () => {
+  const open = a11yPanel?.style.display === "block";
+  open ? closeA11yPanel() : openA11y();
+});
+closeA11y?.addEventListener("click", closeA11yPanel);
+
+// ESC סוגר
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && a11yPanel?.style.display === "block") {
+    closeA11yPanel();
+  }
+});
+
+// הגדלה/הקטנה
+function currentFontIndex(){
+  return FONT_CLASSES.findIndex(c => document.documentElement.classList.contains(c));
+}
+fontPlus?.addEventListener("click", () => {
+  const idx = currentFontIndex();
+  FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+  const next = Math.min((idx < 0 ? 0 : idx + 1), FONT_CLASSES.length - 1);
+  document.documentElement.classList.add(FONT_CLASSES[next]);
+  saveState();
+});
+fontMinus?.addEventListener("click", () => {
+  const idx = currentFontIndex();
+  FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+  const next = Math.max(idx - 1, -1);
+  if (next >= 0) document.documentElement.classList.add(FONT_CLASSES[next]);
+  saveState();
+});
+
+toggleContrast?.addEventListener("click", () => {
+  document.body.classList.toggle("a11y-contrast");
+  saveState();
+});
+toggleLinks?.addEventListener("click", () => {
+  document.body.classList.toggle("a11y-links");
+  saveState();
+});
+toggleMotion?.addEventListener("click", () => {
+  document.body.classList.toggle("a11y-reduce-motion");
+  saveState();
+});
+
+resetA11y?.addEventListener("click", () => {
+  FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+  document.body.classList.remove("a11y-contrast","a11y-links","a11y-reduce-motion");
+  localStorage.removeItem("a11yState");
+  saveState();
+});
+
+loadState();
   </script>
 </body>
 </html>
