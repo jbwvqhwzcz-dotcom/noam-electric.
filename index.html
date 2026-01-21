@@ -510,11 +510,11 @@
             <div class="grid2">
               <div class="field">
                 <label for="fullName">שם מלא</label>
-                <input id="fullName" name="fullName" placeholder="לדוגמה: ישראל ישראלי" autocomplete="name" required />
+                <input id="fullName" name="fullName" placeholder=>
               </div>
               <div class="field">
                 <label for="phone">טלפון</label>
-                <input id="phone" name="phone" placeholder="05X-XXXXXXX" inputmode="tel" autocomplete="tel" required />
+                <input id="phone" name="phone" placeholder=>
               </div>
             </div>
 
@@ -534,30 +534,20 @@
               </div>
               <div class="field">
                 <label for="city">עיר / אזור</label>
-                <input id="city" name="city" placeholder="לדוגמה: ירושלים / גבעת זאב" autocomplete="address-level2" />
+                 <input id="city" name="city" placeholder= >
               </div>
             </div>
 
             <div class="field">
               <label for="msg">פרטים בקצרה</label>
-              <textarea id="msg" name="msg" placeholder="מה קורה? מתי נוח להגיע? (אם יש תמונה אפשר לשלוח בוואטסאפ)"></textarea>
-            </div>
-
-            <div class="privacy">
-              <input id="consent" type="checkbox" checked />
-              <div>
-                <b>שמירה מלאה על פרטיות.</b><br/>
-                אפשר לבקש שנפסיק לפנות בכל רגע.
-              </div>
+              <textarea id="msg" name="msg" placeholder="תיאור התקלה, מתי נוח להגיע? (אם יש תמונה אפשר לשלוח בוואטסאפ)"></textarea>
             </div>
 
             <div class="formActions">
-              <button class="btn primary" type="submit">שלחו לי הצעה</button>
-              <a class="btn" id="waBtnForm" href="#" rel="noopener">שליחה בוואטסאפ</a>
-              <a class="btn" href="tel:0512715252">שיחה עכשיו</a>
+              <button class="btn primary" type="submit">שליחה בווצאפ</button>
+              <a class="btn" id="waBtnForm" href="#" rel="noopener">שליחה במייל</a>
             </div>
 
-            <div class="hint">טיפ: אם זו תקלה דחופה – עדיף להתקשר.</div>
             <div class="toast" id="toast">נשלח! אם לא קיבלתם אישור – אפשר ללחוץ על WhatsApp ולשלוח לנו.</div>
           </form>
         </aside>
