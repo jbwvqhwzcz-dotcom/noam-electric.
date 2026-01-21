@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -842,6 +843,8 @@
     const PHONE_PLAIN   = "0512715252"; // ללא מקפים
     const WHATSAPP_NUMBER_INTL = "972512715252"; // ישראל: 972 + מספר בלי 0
 
+    const BUSINESS_EMAIL = "noamavodothashmal@gmail.com";
+
     const DEFAULT_WA_MESSAGE =
 `היי נועם, אשמח להצעת מחיר 🙏
 שם:
@@ -882,41 +885,90 @@
 
     waBtns.forEach(btn => btn.href = waLink(DEFAULT_WA_MESSAGE));
 
-    // ====== Lead form (demo: opens WhatsApp with filled details) ======
+    // ====== Email link builder (mailto) ======
+    function mailtoLink(subject, body){
+      const s = encodeURIComponent(subject || "");
+      const b = encodeURIComponent(body || "");
+      return `mailto:${BUSINESS_EMAIL}?subject=${s}&body=${b}`;
+    }
+
+    // ====== Lead form (WhatsApp submit + Email button) ======
     const form = document.getElementById("leadForm");
     const toast = document.getElementById("toast");
+    const emailBtn = document.getElementById("waBtnForm"); // הכפתור "שליחה במייל" (ה-id נשאר כמו אצלך)
 
     function normalizePhone(p){
       return String(p || "").replace(/[^\d]/g,"");
     }
 
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-
+    function getFormData(){
       const name = document.getElementById("fullName")?.value?.trim() || "";
       const phone = document.getElementById("phone")?.value?.trim() || "";
       const service = document.getElementById("service")?.value?.trim() || "";
       const city = document.getElementById("city")?.value?.trim() || "";
       const msg = document.getElementById("msg")?.value?.trim() || "";
+      return { name, phone, service, city, msg };
+    }
 
-      // Basic validation
-      if (!name || !phone || !service){
-        alert("נא למלא שם, טלפון ושירות.");
-        return;
-      }
-      const digits = normalizePhone(phone);
-      if (digits.length < 9){
-        alert("מספר הטלפון נראה קצר מדי. בדוק שוב.");
-        return;
-      }
-
-      const composed =
-`היי נועם, אשמח להצעת מחיר 🙏
+    function buildMessage({name, phone, service, city, msg}){
+      return `היי נועם, אשמח להצעת מחיר 🙏
 שם: ${name}
 טלפון: ${phone}
 אזור: ${city || "-"}
 שירות: ${service}
 פרטים: ${msg || "-"}`;
+    }
+
+    function validateBasic({name, phone, service}){
+      if (!name || !phone || !service){
+        alert("נא למלא שם, טלפון ושירות.");
+        return false;
+      }
+      const digits = normalizePhone(phone);
+      if (digits.length < 9){
+        alert("מספר הטלפון נראה קצר מדי. בדוק שוב.");
+        return false;
+      }
+      return true;
+    }
+
+    // Update email href live (so it always has the current form text)
+    function refreshEmailHref(){
+      if (!emailBtn) return;
+      const data = getFormData();
+      const subject = "פנייה מהאתר – בקשה להצעת מחיר";
+      const body = buildMessage(data);
+      emailBtn.href = mailtoLink(subject, body);
+    }
+
+    form?.addEventListener("input", refreshEmailHref, true);
+    form?.addEventListener("change", refreshEmailHref, true);
+    refreshEmailHref();
+
+    // On email click: validate first, then open mailto
+    emailBtn?.addEventListener("click", (e) => {
+      const data = getFormData();
+      if (!validateBasic(data)){
+        e.preventDefault();
+        return;
+      }
+      // ensure latest body
+      const subject = "פנייה מהאתר – בקשה להצעת מחיר";
+      const body = buildMessage(data);
+      emailBtn.href = mailtoLink(subject, body);
+      // allow default navigation
+    });
+
+    // WhatsApp submit (כמו שהיה אצלך)
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = getFormData();
+
+      // Basic validation
+      if (!validateBasic(data)) return;
+
+      const composed = buildMessage(data);
 
       // Show toast
       if (toast){
@@ -939,3 +991,4 @@
   </script>
 </body>
 </html>
+```
